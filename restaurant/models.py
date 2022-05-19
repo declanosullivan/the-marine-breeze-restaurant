@@ -16,7 +16,7 @@ class OpenHours(models.Model):
     WEEKDAYS = (
         ('SUN', 'SUNDAY'),
         ('MON', 'MONDAY'),
-        ('TUES', 'TUESDAY'),
+        ('TUE', 'TUESDAY'),
         ('WED', 'WEDNESDAY'),
         ('THU', 'THURSDAY'),
         ('FRI', 'FRIDAY'),
@@ -29,6 +29,8 @@ class OpenHours(models.Model):
 
     def __str__(self):
         return f"{self.week_day}: Open at {self.opening_time} and closed at {self.closing_time}"
+
+
 
 class ClosedDays(models.Model):
     """
