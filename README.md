@@ -26,8 +26,30 @@ The site owner would like the ability to take online bookings for their eatery.
 As a external user, 
 
 ### Wireframes
+
+* Home Page
+
+![Wireframe for home page](documentation/wireframes/wireframe_home.png)
+
+* Contact Page
+
+![Wireframe for home page](documentation/wireframes/wireframe_contact.png)
  
+* Menu Page
+
+![Wireframe for menu page](documentation/wireframes/wireframe_menu.png)
+
+* Gallery Page
+
+![Wireframe for menu page](documentation/wireframes/wireframe_gallery.png)
+
+* Reservations Page
+
+![Wireframe for reservations page](documentation/wireframes/wireframe_gallery.png)
+
 ### Feaures
+
+### Database Schema
 
 ## Technologies
 
