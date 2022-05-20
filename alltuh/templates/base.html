@@ -42,6 +42,20 @@
     {% endblock %}
 
     {% block content %}
+
+    <form action="" method="post">
+      {% csrf_token %}
+      <input type="date" name="date"><br>
+      <input type="number" name="num_seats"><br>
+      <input type="submit" name="submit">
+    </form>
+    {% if available_tables %}
+    {% for table in available_tables %}
+    <h3>{{table.table_no.table_no}}</h3>
+    <h3>{{table.table_no.table_seats}}</h3>
+    <h3>{{table.table_start}}</h3>
+    {% endfor %}
+    {% endif %}
     {% endblock %}
 
     {% block postloadjs %}
