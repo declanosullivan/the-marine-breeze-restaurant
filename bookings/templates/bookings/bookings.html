@@ -41,22 +41,52 @@
     {% block page_header %}
     {% endblock %}
 
+    <div class="container pb-5">
     {% block content %}
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center border">
+            <label for="date">Date</label><br>
+            <input type="date" id="date" name="date"><br>
+          </div>
+          <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center border">
+            <label for="seats">Seats</label><br>
+            <input type="number" id="seats" name="num_seats"><br>
+          </div>
+          <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center border">
+            <input type="submit" name="Search">
+          </div>
+        </div>
+      </form>
+    </div> 
+    
 
-    <form action="" method="post">
-      {% csrf_token %}
-      <input type="date" name="date"><br>
-      <input type="number" name="num_seats"><br>
-      <input type="submit" name="submit">
-    </form>
-    {% if available_tables %}
-    {% for table in available_tables %}
-    <h3>{{table.table_no.table_no}}</h3>
-    <h3>{{table.table_no.table_seats}}</h3>
-    <h3>{{table.table_start}}</h3>
-    {% endfor %}
-    {% endif %}
-    {% endblock %}
+      <div class="container">
+          <div class="row">
+            <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Table No</div>
+            <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Seats</div>
+            <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Start Time</div>
+          </div>
+          {% if available_tables %}
+          <div class="row">
+            {% for table in available_tables %}
+            <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center">
+              {{table.table_no.table_no}}
+            </div>
+            <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center">
+              {{table.table_no.table_seats}}
+            </div>
+            <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center">
+              {{table.table_start}}
+            </div>
+        </div>
+      </div>
+
+
+      {% endfor %}
+      {% endif %}
+      {% endblock %}
 
     {% block postloadjs %}
     {% endblock %}
