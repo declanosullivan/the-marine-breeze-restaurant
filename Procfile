@@ -1,1 +1,1 @@
-web: gunicorn marine_breeze.wsgi:appli 
+web: gunicorn marine_breeze.wsgi
