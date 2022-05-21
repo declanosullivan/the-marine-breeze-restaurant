@@ -1,5 +1,9 @@
+from datetime import datetime
+from datetime import timedelta
+from tracemalloc import start
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 
 from tables.models import TableAvail
 from tables.models import Tables
@@ -50,6 +54,74 @@ def bookings_now(request):
         ta.is_booked = True
         ta.save()
 
-        return redirect("/bookings/")
+        return render(request, 'bookings/bookings_now.html')
 
-    return render(request, 'bookings/booking_now.html', {'ta': ta, 'selected_date': selected_date});
+    return render(request, 'bookings/bookings_now.html', {'ta': ta, 'selected_date': selected_date});
+
+def confirmation(request):
+    '''
+    
+    '''
+    return render(request, 'bookings/booking_confirmed.html')
+
+
+def create_availability(request):
+    try:
+        start_date = datetime.today()
+        start_time = '9:00'
+        end_time = '22:00'
+        time_slots = []
+        s_time = datetime.strptime(start_time, '%H:%M')
+        e_time = datetime.strptime(end_time, '%H:%M')
+        while s_time <= e_time:
+            _e_time = s_time + timedelta(minutes=120)
+            time_slots.append((s_time, _e_time))
+            s_time += timedelta(minutes=120)
+        # print(start_date, end_date)
+        # loop every day for the next 30 days
+        # get all table objects
+        # loop over every table object
+        # loop over each slot
+        # create TableAvail objects for each table
+
+        for i, x in enumerate(range(0, 4)):
+            if i == 0:
+                start_date = start_date
+            else:
+                start_date = start_date + timedelta(days=1)
+            tables = Tables.objects.all()
+            for table in tables:
+                for time_slot in time_slots:
+                    TableAvail.objects.create(table_no=table, table_date=start_date, table_start=time_slot[0], table_end=time_slot[1])
+        return JsonResponse({"success": True})
+    except:
+        return JsonResponse({"success": False})
+
+
+
+def create_availability_daily(request):
+    try:
+        start_time = '9:00'
+        end_time = '22:00'
+        time_slots = []
+        s_time = datetime.strptime(start_time, '%H:%M')
+        e_time = datetime.strptime(end_time, '%H:%M')
+        while s_time <= e_time:
+            _e_time = s_time + timedelta(minutes=120)
+            time_slots.append((s_time, _e_time))
+            s_time += timedelta(minutes=120)
+
+        max_avail = TableAvail.objects.last()
+        print(max_avail.table_date)
+        start_date = max_avail.table_date + timedelta(days=1)
+        print(start_date)
+        tables = Tables.objects.all()
+        for table in tables:
+            for time_slot in time_slots:
+                TableAvail.objects.create(table_no=table, table_date=start_date, table_start=time_slot[0], table_end=time_slot[1])
+        return JsonResponse({"success": True})
+    except:
+        return JsonResponse({"success": False})
+
+
+

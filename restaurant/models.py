@@ -5,8 +5,8 @@ class TimeSlots(models.Model):
     """
     Models for duration of time a table can be available for
     """
-    slot_start = models.DateField()
-    slot_end = models.DateField()
+    slot_start = models.TimeField()
+    slot_end = models.TimeField()
 
 
 class OpenHours(models.Model):
