@@ -1,7 +1,7 @@
 <html>
     <p>{{ ta }}</p>
     <p>{{ selected_date }}</p>
-    <form method="post" action="{% url 'bookings_now' %}">
+    <form method="post" action="{% url 'booking_confirmed' %}">
         {% csrf_token %}
         <input type="hidden" value="{{ta.pk}}" name="table_no"/>
         <input type="submit" name="confirm" value="confirm" />

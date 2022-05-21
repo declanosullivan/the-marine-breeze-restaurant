@@ -50,6 +50,12 @@ def bookings_now(request):
         ta.is_booked = True
         ta.save()
 
-        return redirect("/bookings/")
+        return render(request, 'bookings/bookings_now.html')
 
-    return render(request, 'bookings/booking_now.html', {'ta': ta, 'selected_date': selected_date});
+    return render(request, 'bookings/bookings_now.html', {'ta': ta, 'selected_date': selected_date});
+
+def confirmation(request):
+    '''
+    
+    '''
+    return render(request, 'bookings/booking_confirmed.html')
