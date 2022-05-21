@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     {% endblock %}
       
-     {
+
     <title>The Marine Breeze Restaurant{% block extra_title %}{% endblock %}</title>
   </head>
   <body>
@@ -41,22 +41,62 @@
     {% block page_header %}
     {% endblock %}
 
+    <div class="container pb-5">
     {% block content %}
+      <form action="">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center border">
+            <label for="date">Date</label><br>
+            <input type="date" id="date" name="date" value="{{selected_date}}"><br>
+          </div>
+          <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center border">
+            <label for="seats">Seats</label><br>
+            <input type="number" id="seats" name="num_seats"><br>
+          </div>
+          <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center border">
+            <input type="submit" name="Search">
+          </div>
+        </div>
+      </form>
+    </div> 
+    
 
-    <form action="" method="post">
-      {% csrf_token %}
-      <input type="date" name="date"><br>
-      <input type="number" name="num_seats"><br>
-      <input type="submit" name="submit">
-    </form>
-    {% if available_tables %}
-    {% for table in available_tables %}
-    <h3>{{table.table_no.table_no}}</h3>
-    <h3>{{table.table_no.table_seats}}</h3>
-    <h3>{{table.table_start}}</h3>
-    {% endfor %}
-    {% endif %}
-    {% endblock %}
+      <div class="container">
+          <div class="row">
+            <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Table No</div>
+            <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Seats</div>
+            <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Start Time</div>
+            <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Book</div>
+
+          </div>
+          {% if available_tables %}
+            {% for table in available_tables %}
+              <div class="row">
+                
+                    <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center">
+                      {{table.table_no.table_no}}
+                    </div>
+                    <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center">
+                      {{table.table_no.table_seats}}
+                    </div>
+                    <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center">
+                      {{table.table_start}}
+                    </div>
+                    <div>
+                      <form method="post" action="{% url 'bookings_now' %}">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{table.pk}}" name="table_no"/>
+                        <button>Book</button>
+                      </form>
+                    </div>
+                </div>
+              {% endfor %}
+          {% endif %}
+      </div>
+
+     
+      {% endblock %}
 
     {% block postloadjs %}
     {% endblock %}

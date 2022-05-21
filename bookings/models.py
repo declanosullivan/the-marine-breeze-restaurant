@@ -1,10 +1,11 @@
 from datetime import datetime
 from django.contrib.auth.models import User 
-from tables.models import Tables
+from tables.models import Tables, TableAvail
 from django.db import models
 import datetime
 
-
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 class Bookings(models.Model):
     """
@@ -28,3 +29,18 @@ class Bookings(models.Model):
     booking_created = models.DateField(auto_now_add=True)
     booking_updated= models.DateTimeField(auto_now=True)
 
+
+
+
+@receiver(post_save, sender=Bookings)
+def update_booking(sender, instance, **kwargs):
+    table = instance.table
+    if instance.booking_status == "NOSHO"  or instance.booking_status == "CANC":
+        TableAvail.objects.filter(table_no=table, 
+                table_date=instance.booking_date, table_start=instance.booking_start,
+                table_end=instance.booking_end).update(is_booked=False)
+
+    if instance.booking_status == "ACT":
+        TableAvail.objects.filter(table_no=table, 
+                table_date=instance.booking_date, table_start=instance.booking_start,
+                table_end=instance.booking_end).update(is_booked=True)
