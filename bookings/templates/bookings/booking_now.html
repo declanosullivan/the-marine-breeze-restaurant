@@ -1,0 +1,10 @@
+<html>
+    <p>{{ ta }}</p>
+    <p>{{ selected_date }}</p>
+    <form method="post" action="{% url 'bookings_now' %}">
+        {% csrf_token %}
+        <input type="hidden" value="{{ta.pk}}" name="table_no"/>
+        <input type="submit" name="confirm" value="confirm" />
+        <input type="button" name="cancel" value="cancel"/>
+    </form>
+</html>
