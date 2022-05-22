@@ -41,3 +41,9 @@ class ClosedDays(models.Model):
 
     def __str__(self):
         return self.closed_date
+
+class Contact(models.Model):
+    name = models.CharField(max_length=120)
+    email = models.EmailField(blank=True)
+    subject = models.CharField(max_length=25, blank=True)
+    message = models.TextField(blank=True)
