@@ -1,32 +1,26 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-  <div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-  </div>
-{% endblock %}
-
 {% block content %}
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col">
-            <div>
-                <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
-            </div>
+        <div class="col pb-5">
+            <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
         </div>
-        <div class="col">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac tempus risus. Pellentesque sit amet ligula sollicitudin, iaculis massa eu, auctor massa. Donec eu tortor vel turpis mattis gravida. Donec eget mauris neque. Etiam vel aliquet dolor. Morbi a felis lacinia, sollicitudin quam at, vestibulum nunc. Vestibulum mauris tellus, venenatis sit amet consequat in, lacinia vel massa. Sed in urna odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce metus risus, euismod sed nisl ac, tempor dictum erat. Cras non laoreet lorem. Donec mauris odio, sagittis sed finibus id, aliquam ac sem. Donec ante elit, dignissim at porttitor eu, maximus at turpis.
-            </p>
-            <p>
-                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla rhoncus sem nec volutpat sollicitudin. Maecenas et finibus leo. Nam dapibus, libero in fringilla consequat, neque dolor elementum erat, ut sagittis ligula quam non tellus. Morbi vitae erat eget tellus ultrices tincidunt sit amet at dui. Fusce porta bibendum mauris sit amet pellentesque. Donec id velit vitae elit ornare pretium et sed ante. Suspendisse placerat ultricies ante, vitae pellentesque massa eleifend eget. Duis eget pharetra urna, vel feugiat mauris.
-            </p>
-        </div>
+        <div class="col pb-5">
+            <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
+        </div> 
     </div>
+    <div class="row">
+        <div class="col pb-5">
+            <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
+        </div>
+        <div class="col pb-5">
+            <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
+        </div>
+    </div>  
 </div>
+
 {% endblock %}
 
 
