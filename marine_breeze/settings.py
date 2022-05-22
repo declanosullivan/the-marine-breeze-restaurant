@@ -145,6 +145,7 @@ USE_TZ = True
 USE_S3 = os.getenv('USE_S3') == True
 
 if USE_S3:
+    
     # AWS settings
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
@@ -153,23 +154,22 @@ if USE_S3:
     AWS_DEFAULT_ACL = None
     AWS_S3_REGION_NAME = 'us-east-1'
     AWS_S3_SIGNATURE_VERSION = 's3v4'
+
     # s3 static settings
     STATIC_LOCATION = 'static'
     STATIC_URL = f'{AWS_URL}/{STATIC_LOCATION}/'
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
     # s3 media settings
     MEDIA_LOCATION = 'media'
     MEDIA_URL = f'{AWS_URL}/{MEDIA_LOCATION}/'
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 else:
-    STATIC_URL = '/staticfiles/'
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    MEDIA_URL = '/mediafiles/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
-
-
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
