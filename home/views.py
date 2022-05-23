@@ -6,13 +6,16 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     """ A view to return the index page """
-
     return render(request, 'home/index.html')
+
+def login(request):
+    return render(request, 'registration/login.html')    
  
+# Views
 @login_required
 def home(request):
-    return render(request, "home/success.html", {})
- 
+    return render(request, "registration/success.html", {})
+
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -25,4 +28,4 @@ def register(request):
             return redirect('home')
     else:
         form = UserCreationForm()
-    return render(request, 'home/register.html', {'form': form})
+    return render(request, 'registration/register.html', {'form': form})
