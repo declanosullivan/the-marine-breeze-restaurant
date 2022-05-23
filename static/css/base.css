@@ -10,7 +10,7 @@ body {
     }
 
 /* photo grid styling */
-# gallery-top {
+/* #gallery-top {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border: 10px solid rgb(209, 196, 233);
@@ -46,4 +46,4 @@ body {
 
 .gallery-item:hover .image img {
   transform: scale(1.5);
-}
+} */

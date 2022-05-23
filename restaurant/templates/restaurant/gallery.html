@@ -3,94 +3,45 @@
 {% load static %}
 
 {% block content %}
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col pb-5">
+            <img src="{% static 'media/gallerydinner1.jpg' %}" class="img-fluid" alt="hotel">
+        </div>
+        <div class="col pb-5">
+            <img src="{% static 'media/gallerydinner1.jpg' %}" class="img-fluid" alt="hotel">
+        </div>
+        <div class="col pb-5">
+            <img src="{% static 'media/gallerydinner1.jpg' %}" class="img-fluid" alt="hotel">
+        </div>
+        <div class="col pb-5">
+            <img src="{% static 'media/gallerydinner1.jpg' %}" class="img-fluid" alt="hotel">
+        </div>
+    </div>
+</div>
 
-<!-- Gallery Section -->
-<section>
-    <h2>Gallery 1</h2>
-    <div id="gallery-top" class="container">
-        <div class="gallery-item">
-            <figure class="image">
-                <img src="{ % static 'media/gallerydinner1.jpg' %}" alt="hotel">
-            </figure>
-        </div>
-        <div class="gallery-item">
-            <figure class="image">
-                <img src="{ % static 'media/gallerydinner1.jpg' %}" alt="hotel">
-            </figure>
-        </div>
-        <div class="gallery-item">
-            <figure class="image">
-                <img src="{ % static 'media/gallerydinner1.jpg' %}" alt="hotel">
-            </figure>
-        </div>
-        <div class="gallery-item">
-            <figure class="image">
-                <img src="{ % static 'media/gallerydinner1.jpg' %}" alt="hotel">
-            </figure>
-        </div>
-        <div class="gallery-item">
-            <figure class="image">
-                <img src="{ % static 'media/gallerydinner1.jpg' %}" alt="hotel">
-            </figure>
-        </div>
-        <div class="gallery-item">
-            <figure class="image">
-                <img src="{ % static 'media/gallerydinner1.jpg' %}" alt="hotel">
-            </figure>
-        </div>
-        <div class="gallery-item">
-            <figure class="image">
-                <img src="{ % static 'media/gallerydinner1.jpg' %}" alt="hotel">
-            </figure>
-        </div>
-        <div class="gallery-item">
-            <figure class="image">
-                <img src="{ % static 'media/gallerydinner1.jpg' %}" alt="hotel">
-            </figure>
-        </div>
-    </div>
-    <h2>Gallery 2</h2>
-    <div id="gallery-bottom" class="container">
-        <div class="gallery-item">
-            <figure class="image">
-                <img src="assets/images/room1.jpeg" alt="hotel">
-            </figure>
-        </div>
-        <div class="gallery-item">
-            <figure class="image">
-                <img src="assets/images/room2.jpeg" alt="hotel">
-            </figure>
-        </div>
-        <div class="gallery-item">
-            <figure class="image">
-                <img src="assets/images/room3.jpeg" alt="hotel">
-            </figure>
-        </div>
-        <div class="gallery-item">
-            <figure class="image">
-                <img src="assets/images/room4.jpeg" alt="hotel">
-            </figure>
-        </div>
-        <div class="gallery-item">
-            <figure class="image">
-                <img src="assets/images/room5.jpeg" alt="hotel">
-            </figure>
-        </div>
-        <div class="gallery-item">
-            <figure class="image">
-                <img src="assets/images/room6.jpeg" alt="hotel">
-            </figure>
-        </div>
-        <div class="gallery-item">
-            <figure class="image">
-                <img src="assets/images/room7.jpeg" alt="hotel">
-            </figure>
-        </div>
-        <div class="gallery-item">
-            <figure class="image">
-                <img src="assets/images/room8.jpeg" alt="hotel">
-            </figure>
-        </div>
-    </div>
-</section>
+<!-- 
+        <h2>Gallery 1</h2>
+        <div class="row">
+            <div class="col pb-5">
+                <figure class="image">
+                    <img src="{% static 'media/gallerydinner1.jpg' %}" alt="hotel">
+                </figure>
+            </div>
+            <div class="col pb-5">
+                <figure class="image">
+                    <img src="{% static 'media/gallerydinner1.jpg' %}" alt="hotel">
+                </figure>
+            </div>
+            <div class="col pb-5">
+                <figure class="image">
+                    <img src="{% static 'media/gallerydinner1.jpg' %}" alt="hotel">
+                </figure>
+            </div>
+            <div class="col pb-5">
+                <figure class="image">
+                    <img src="{% static 'media/gallerydinner1.jpg' %}" alt="hotel">
+                </figure>
+            </div>
+        </div> -->
 {% endblock %}

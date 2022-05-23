@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'restaurant',
     'home',
     'crispy_forms',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
