@@ -1,28 +1,25 @@
 {% load static %}
-<!-- <div class="d-flex flex-wrap justify-content-between align-items-center fixed-bottom bg-light pt-5"></div> -->
+
 {% block page_footer %}
-  <footer class="fixed-bottom bg-light">
-    <div class="container-fluid justify-content-between">
-      <div class="col-md-4 d-flex flex-row">
-        <div class="p-2">
-          <img src="{% static 'icons/water.svg' %}" alt="water waves" width="32" height="32">
-        </div>
-        <div>
-          <p class="text-muted p-2">The Marine Breeze Restaurant</p>
-        </div>
+<footer class="container-fluid justify-content-between bg-light sticky-bottom">
+      
+      <div class="d-flex justify-content-center pt-2">
+        <p class=" text-center text-muted">The Marine Breeze Restaurant</p>
       </div>
 
-        <div class="col-md-4 d-flex flex-row-reverse">
-          <div>
+      <div class="d-flex justify-content-around pb-3">
+        <div>
             <img src="{% static 'icons/facebook.svg' %}" alt="Facebook" width="32" height="32">
-          </div>
-          <div>
-            <img src="{% static 'icons/instagram.svg' %}" alt="Instram" width="32" height="32">
-          </div>
-          <div>
-            <img src="{% static 'icons/twitter.svg' %}" alt="Twitter" width="32" height="32">
-          </div>
         </div>
-  
-  </footer>
+        <div>
+            <img src="{% static 'icons/instagram.svg' %}" alt="Instram" width="32" height="32">
+        </div>
+        <div>
+            <img src="{% static 'icons/twitter.svg' %}" alt="Twitter" width="32" height="32">
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</footer>
 {% endblock %}

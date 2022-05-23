@@ -1,7 +1,6 @@
 from django.urls import path
-from . import views
-   
-urlpatterns = [
-    path('', views.contact_view, name='restaurant'),
-]
+from some_app.views import AboutView
 
+urlpatterns = [
+    path('menu/', MenuView.as_view()),
+]

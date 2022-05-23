@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from .forms import ContactForm
+from django.views.generic import TemplateView
 
-def contact_view(request):
-    """ A view to return the index page """
-
-    return render(request, 'restaurant.html')
+class MenuView(TemplateView):
+    template_name = "menu.html"
