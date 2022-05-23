@@ -1,9 +1,8 @@
 from django.urls import path
-from restaurant.views import RestaurantView, MenuView, GalleryView, ContactView
+from . import views
 
 urlpatterns = [
-    path('', RestaurantView.as_view(), name='restaurant'),
-    path('menu/', MenuView.as_view(), name='menu'),
-    path('gallery/', GalleryView.as_view(), name='gallery'),
-    path('contact/', ContactView.as_view(), name='contact'),
+    path('menu/', views.menu, name='menu'),
+    path('contact/', views.contact, name='contact'),
+    path('gallery/', views.gallery, name='gallery'),
 ]

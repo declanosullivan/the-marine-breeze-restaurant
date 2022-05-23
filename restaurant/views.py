@@ -1,18 +1,31 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
 
-class RestaurantView(TemplateView):
+def menu(request):
+    return render(request, 'restaurant/menu.html')
 
-    template_name = "menu.html"
+def contact(request):
+    return render(request, 'restaurant/contact.html')    
 
-class MenuView(TemplateView):
+def gallery(request):
+    return render(request, 'restaurant/gallery.html')    
 
-    template_name = "menu.html"
 
-class GalleryView(TemplateView):
+
+# from django.shortcuts import render
+# from django.views.generic import TemplateView
+
+# class RestaurantView(TemplateView):
+
+#     template_name = "menu.html"
+
+# class MenuView(TemplateView):
+
+#     template_name = "menu.html"
+
+# class GalleryView(TemplateView):
     
-    template_name = "gallery.html"
+#     template_name = "gallery.html"
 
-class ContactView(TemplateView):
+# class ContactView(TemplateView):
 
-    template_name = "contact.html"
+#     template_name = "contact.html"
