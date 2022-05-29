@@ -1,4 +1,12 @@
-<html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div>
+    <p>Details 1</p>
+    <p>Details 1</p>
+    <p>Details 1</p>
+    <p>Details 1</p>
     <p>{{ ta }}</p>
     <p>{{ selected_date }}</p>
     <form method="post" action="{% url 'booking_confirmed' %}">
@@ -7,4 +15,5 @@
         <input type="submit" name="confirm" value="confirm" />
         <input type="button" name="cancel" value="cancel"/>
     </form>
-</html>
+</div>
+{% endblock %}

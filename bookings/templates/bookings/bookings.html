@@ -1,15 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-  <div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-  </div>
-{% endblock %}
-
 {% block content %}
+<section>
         <div class="container py-5">
           <form action="">
             {% csrf_token %}
@@ -20,7 +13,11 @@
               </div>
               <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center border">
                 <label for="seats">Seats</label><br>
-                <input type="number" id="seats" name="num_seats"><br>
+                <select id="seats" name="num_seats">
+                  <option value="4">4</option>
+                  <option value="6">6</option>
+                  <option value="8">8</option>
+                </select><br>
               </div>
               <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center border">
                 <input type="submit" name="Search">
@@ -60,10 +57,5 @@
       {% else %}
       <h3>No Availability Found</h3>
       {% endif %}
+</section>      
 {% endblock %}
-
-{% block postloadjs %}
-{% endblock %}
-
-</body>
-</html>

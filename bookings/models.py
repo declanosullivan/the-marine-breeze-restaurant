@@ -31,7 +31,6 @@ class Bookings(models.Model):
 
 
 
-
 @receiver(post_save, sender=Bookings)
 def update_booking(sender, instance, **kwargs):
     table = instance.table

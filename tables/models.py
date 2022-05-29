@@ -10,7 +10,16 @@ class Tables(models.Model):
         ('2', 'TWO'),
         ('3', 'THREE'),
         ('4', 'FOUR'),
+        ('5', 'FiVE'),
     )  
+
+    TABLE_TSEATS = (
+        (4, 4),
+        (4, 4),
+        (6, 6),
+        (6, 6),
+        (8, 8),
+    )
 
     TABLE_STATUSES = (
         ('ACT', 'ACTIVE'),
@@ -18,7 +27,7 @@ class Tables(models.Model):
     )  
 
     table_no = models.CharField(max_length=5, choices=TABLE_NAMES, unique=True)
-    table_seats = models.SmallIntegerField()
+    table_seats = models.SmallIntegerField(choices=TABLE_TSEATS)
     table_status = models.CharField(max_length=10, choices=TABLE_STATUSES, default="Active")
 
     def __str__(self):

@@ -1,6 +1,26 @@
-{% extends "base.html" %}
+{% extends 'base.html' %} 
 {% load static %}
 
 {% block content %}
-    <h1 class="display-4 text-success">Home app works!</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col pb-5">
+            <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
+        </div>
+        <div class="col pb-5">
+            <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
+        </div> 
+    </div>
+    <div class="row">
+        <div class="col pb-5">
+            <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
+        </div>
+        <div class="col pb-5">
+            <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
+        </div>
+    </div>  
+</div>
+
 {% endblock %}
+
+

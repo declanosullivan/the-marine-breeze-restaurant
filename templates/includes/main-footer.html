@@ -1,0 +1,25 @@
+{% load static %}
+
+{% block page_footer %}
+<footer class="container-fluid justify-content-between bg-light fixed-bottom">
+      
+      <div class="d-flex justify-content-center pt-2">
+        <p class=" text-center text-muted">The Marine Breeze Restaurant</p>
+      </div>
+
+      <div class="d-flex justify-content-around pb-3">
+        <div>
+            <img src="{% static 'icons/facebook.svg' %}" alt="Facebook" width="32" height="32">
+        </div>
+        <div>
+            <img src="{% static 'icons/instagram.svg' %}" alt="Instram" width="32" height="32">
+        </div>
+        <div>
+            <img src="{% static 'icons/twitter.svg' %}" alt="Twitter" width="32" height="32">
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</footer>
+{% endblock %}
