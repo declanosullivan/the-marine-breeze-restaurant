@@ -5,38 +5,17 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container">
-  <div class="row align-items-start">
-    <div class="col">
-        <h3>Contact Us</h3>
-        <form action="" method="post">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <input type="submit" value="Submit">
-      </form>
-    </div>
-    <div class="col">
-      <div class="row" >
-
-      </div>
-      <div class="row" >
-        <img src="{% static 'media/maplocation.jpg' %}" class="img-fluid" alt="map">
-      </div>
-      <div class="row" >
-        <div class="col">
-          <p>Address 1</p>
-          <p>Address 1</p>
-          <p>Address 1</p>
-          <p>Address 1</p>
-          <p>Address 1</p>
-          <p>Address 1</p>
-        </div>
-        <div class="col">
-          <p>Email</p>
-          <p>Phone</p>
-        </div>
-      </div>
-    </div>  
+<div class="container" id="contactgrid">
+  <div>
+    <h3>Contact Us</h3>
+    <form action="" method=" post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" value="Submit">
+    </form>
+  </div>
+  </div>
+    <img src=" {% static 'media/maplocation.jpg' %}" class="img-fluid" alt="map">
   </div>
 </div>
 {% endblock %}

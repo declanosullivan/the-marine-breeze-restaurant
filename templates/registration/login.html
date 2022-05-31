@@ -13,6 +13,7 @@
     </div>
     <div class="row">
       <div class="col-md-6 offset-md-3 mt-3">
+        <p>Don't already have an account? Then please <a href="{% url 'signup' %}">sign up</a></p>
         <form method="post" action="{% url 'login' %}">
           {% csrf_token %}
           <div class="form-group">

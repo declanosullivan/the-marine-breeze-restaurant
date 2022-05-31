@@ -7,6 +7,7 @@ import datetime
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+
 class Bookings(models.Model):
     """
     Models for bookings 
@@ -22,12 +23,13 @@ class Bookings(models.Model):
     booking_date = models.DateField(default=datetime.date.today)
     booking_start = models.TimeField()
     booking_end = models.TimeField()
-    booking_status = models.CharField(max_length=5, choices=BOOKING_STATUSES, default="Active")
-    table =  models.ForeignKey(Tables, on_delete=models.CASCADE)
+    booking_status = models.CharField(max_length=20, choices=BOOKING_STATUSES, default="Active")
+    table = models.ForeignKey(Tables, on_delete=models.CASCADE)
     customer = models.ForeignKey(User, on_delete=models.CASCADE) 
     booked_by = models.CharField(max_length=10)
     booking_created = models.DateField(auto_now_add=True)
     booking_updated= models.DateTimeField(auto_now=True)
+    table_avail = models.ForeignKey(TableAvail, on_delete=models.CASCADE)
 
 
 
@@ -43,3 +45,9 @@ def update_booking(sender, instance, **kwargs):
         TableAvail.objects.filter(table_no=table, 
                 table_date=instance.booking_date, table_start=instance.booking_start,
                 table_end=instance.booking_end).update(is_booked=True)
+
+@receiver(pre_delete, sender=Bookings)
+def update_avail(sender, instance, **kwargs):
+    TableAvail.update(is_booked=False)
+
+            

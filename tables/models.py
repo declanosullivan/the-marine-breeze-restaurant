@@ -43,9 +43,8 @@ class TableAvail(models.Model):
     table_start = models.TimeField()
     table_end = models.TimeField()
     is_booked = models.BooleanField(default=False)
-    
 
     def __str__(self):
-        return '{} {} {}'.format(self.table_no.table_no, str(self.table_no.table_seats), str(self.table_date))
+        return f"Table {self.table_no} has {self.table_date} and is {self.table_start}"
 
 

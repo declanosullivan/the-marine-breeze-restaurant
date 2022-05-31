@@ -1,6 +1,7 @@
 from datetime import datetime
 from datetime import timedelta
 from tracemalloc import start
+from django.db import transaction
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
@@ -26,7 +27,7 @@ def bookings(request):
     return render(request, 'bookings/bookings.html')
 
 
-@login_required
+@login_required(login_url='/login/')
 def bookings_now(request):
     '''
     Book available table
@@ -44,17 +45,19 @@ def bookings_now(request):
             letter = random.choice(letters)
             ref.append(letter)
         ref = "".join(ref)
-
+ 
         Bookings.objects.create(booking_ref=ref, booking_date=selected_date,
             booking_start=ta.table_start, booking_end=ta.table_end,
             table=ta.table_no, customer=request.user,
-            booked_by=""
+            booked_by=request.user,
+            table_avail_id=ta.id,
         )
 
         ta.is_booked = True
         ta.save()
 
-        return render(request, 'bookings/bookings_now.html')
+        return redirect("profile")
+        #return render(request, 'registration/profile.html')
 
     return render(request, 'bookings/bookings_now.html', {'ta': ta, 'selected_date': selected_date});
 
@@ -63,6 +66,26 @@ def confirmation(request):
     
     '''
     return render(request, 'bookings/booking_confirmed.html')
+
+@transaction.atomic
+def booking_cancel(request, booking_id):
+    '''
+    Cancel reservation
+    '''
+    userbooking = Bookings.objects.get(id=booking_id)
+    ta = Bookings.table_avail
+    tablerelease = TableAvail.objects.get(id=ta)
+  
+    confirm = request.POST.get('confirm')
+    if confirm:
+        
+        tablerelease.table_avail.is_booked = False
+        tablerelease.table_avail.save()
+        userbooking.delete()
+
+        return redirect('profile')
+
+    return render(request, 'bookings/booking_cancel.html', {"userbooking": userbooking})
 
 
 def create_availability(request):

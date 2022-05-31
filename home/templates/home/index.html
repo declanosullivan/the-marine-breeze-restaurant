@@ -2,25 +2,18 @@
 {% load static %}
 
 {% block content %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col pb-5">
-            <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
-        </div>
-        <div class="col pb-5">
-            <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
-        </div> 
+<section>
+    <div class="d-flex justify-content-around px-10">
+        <div class="row">
+            <div class="media col-md-6">
+                <img src="{% static 'media/inside-restaurant.jpg' %}" class="img" width="100%" alt="inside restaurant">
+            </div>
+            <div class="media col-md-6">
+                <img src="{% static 'media/inside-restaurant.jpg' %}" class="img" width="100%" alt="inside restaurant">
+            </div>  
+        </div>  
     </div>
-    <div class="row">
-        <div class="col pb-5">
-            <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
-        </div>
-        <div class="col pb-5">
-            <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
-        </div>
-    </div>  
-</div>
-
+</section>
 {% endblock %}
 
 
