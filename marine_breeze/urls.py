@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
- 
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('home.urls')),
-    path('bookings/', include('bookings.urls')),
-    path('restaurant/', include('restaurant.urls')),
+    path("grappelli/", include("grappelli.urls")),  # grappelli URLS
+    path("admin/", admin.site.urls),
+    path("", include("home.urls")),
+    path("bookings/", include("bookings.urls")),
+    path("restaurant/", include("restaurant.urls")),
 ]

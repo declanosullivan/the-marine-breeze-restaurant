@@ -1,6 +1,7 @@
 import datetime
 from tables.models import Tables, TableAvail
 
+
 def check_availability(table_no, table_start, table_end):
     avail_list = []
     tables_list = TableAvail.objects.filter(table_no=table_no)

@@ -2,25 +2,11 @@
 {% load static %}
 
 {% block content %}
-<div class="container-fluid">
-    <div class="row">
-        <div class="col pb-5">
-            <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
-        </div>
-        <div class="col pb-5">
-            <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
-        </div> 
+<div class="overflow-hidden" style="max-height: 130vh;">
+    <div class="container px-5 pt-5">
+      <img src="https://declan-project-1.s3.amazonaws.com/static/media/oceanview.jpeg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" loading="lazy">
     </div>
-    <div class="row">
-        <div class="col pb-5">
-            <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
-        </div>
-        <div class="col pb-5">
-            <img src="{% static 'media/inside-restaurant.jpg' %}" class="img-fluid" alt="inside restaurant">
-        </div>
-    </div>  
-</div>
-
+  </div>
 {% endblock %}
 
 

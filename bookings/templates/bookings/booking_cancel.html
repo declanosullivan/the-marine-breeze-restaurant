@@ -1,16 +1,20 @@
-{% extends "base.html" %}
-{% load static %}
-
 {% block content %}
     <div class="container">
         <p>{{ request.user }}</p>
-        <p>{{ ta.id }}</p>
+        <div class="row">
+            <div class="col">
+                <p>Booking Reference</p>
+            </div>
+            <div class="col">
+                <p> {{userbooking.booking_ref}}</p>
+            </div>
+        </div>
         <div class="row">
             <div class="col">
                 <p>Date</p>
             </div>
             <div class="col">
-                <p>{{ selected_date }}</p>
+                <p>{{ userbooking.booking_date }}</p>
             </div>
         </div>
 
@@ -19,7 +23,7 @@
                 <p>Start Time</p>
             </div>
             <div class="col">
-                <p>{{ ta.table_start }}</p>
+                <p>{{ userbooking.start_time }}</p>
             </div>
         </div>
 
@@ -28,13 +32,12 @@
                 <p>Finish Time</p>
             </div>
             <div class="col">
-                <p>{{ ta.table_end }}</p>
+                <p>{{ userbooking.end_time }}</p>
             </div>
         </div>
         <div class="text-center">
-            <form method="post" action="{% url 'bookings_now' %}">
+            <form method="post" action="{% url 'booking_cancel' booking_id=userbooking.id %}">
                 {% csrf_token %}
-                <input type="hidden" value="{{ta.pk}}" name="table_no"/>
                 <input type="submit" name="confirm" value="confirm" />
                 <input type="button" name="cancel" value="cancel"/>
             </form>

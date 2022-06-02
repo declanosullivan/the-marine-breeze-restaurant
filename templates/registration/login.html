@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% load static %}
 
 {% block content %}
@@ -6,12 +7,13 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-md-12 col-centered">
-        <h1 class="mt-5 mb-3">Login</h1>
+      <div class="col-md-6 offset-md-3 mt-3">
+        <h1 class="mt-5 mb-3">Sign In</h1>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6 offset-md-3 mt-3">
+        <p>Don't already have an account? Then please <a href="{% url 'signup' %}">sign up</a></p>
         <form method="post" action="{% url 'login' %}">
           {% csrf_token %}
           <div class="form-group">

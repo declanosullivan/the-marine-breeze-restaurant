@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <div class="container text-center">
+      <h2>Welcome to your profile</h2>
+      <h3>You can view/cancel reservations below</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+        <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Booking Reference</div>
+        <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Seats</div>
+        <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Start Time</div>
+        <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Cancel</div>
+        </div>
+    </div>
+    <div class="container text-center">
+        {% if userbookings %}
+          {% for userbooking in userbookings %}
+          <div class="row">
+            <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center border border-dark">
+              {{userbooking.booking_ref}}
+              {{userbooking.customer}}
+            </div>
+            <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center border border-dark">
+              {{userbooking.table.table_seats}}
+            </div>
+            <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center border border-dark">
+              {{userbooking.booking_start}}
+            </div>
+            <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center border border-dark">
+                <div>
+                  <a href="{% url 'booking_cancel' booking_id=userbooking.id %}" class="btn">Cancel</a>
+                </div>
+            </div>
+          </div>
+      {% endfor %}
+      {% else %}
+        <h3>No Reservations Found</h3>
+      {% endif %}
+      </div>
+
+{% endblock %}

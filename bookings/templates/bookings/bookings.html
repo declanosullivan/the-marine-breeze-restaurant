@@ -26,36 +26,39 @@
           </form>
         </div>
 
-        <div class="container">
-          <div class="row">
-            <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Table No</div>
-            <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Seats</div>
-            <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Start Time</div>
-            <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Book</div>
-          </div>
-          {% if available_tables %}
-          {% for table in available_tables %}
-          <div class="row">
-            <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center">
-              {{table.table_no.table_no}}
+          <div class="container">
+            <div class="row">
+              <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Table No</div>
+              <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Seats</div>
+              <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Start Time</div>
+              <div class="col-sm p-3 mb-2 bg-dark bg-gradient text-white text-center border border-light">Book</div>
             </div>
-            <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center">
-              {{table.table_no.table_seats}}
+            <div class="container text-center">
+              {% if available_tables %}
+                {% for table in available_tables %}
+                <div class="row">
+                  <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center border border-dark">
+                    {{table.table_no.table_no}}
+                  </div>
+                  <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center border border-dark">
+                    {{table.table_no.table_seats}}
+                  </div>
+                  <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center border border-dark">
+                    {{table.table_start}}
+                  </div>
+                  <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center border border-dark">
+                    <form method="post" action="{% url 'bookings_now' %}">
+                      {% csrf_token %}
+                      <input type="hidden" value="{{table.pk}}" name="table_no" />
+                      <button>Book</button>
+                    </form>
+                  </div>
+              </div>
+            {% endfor %}
+            {% else %}
+              <h3>No Availability Found</h3>
+            {% endif %}
             </div>
-            <div class="col-sm p-3 mb-2 bg-light bg-gradient text-dark text-center">
-              {{table.table_start}}
-            </div>
-            <div>
-              <form method="post" action="{% url 'bookings_now' %}">
-                {% csrf_token %}
-                <input type="hidden" value="{{table.pk}}" name="table_no" />
-                <button>Book</button>
-              </form>
-            </div>
-          </div>
-      {% endfor %}
-      {% else %}
-      <h3>No Availability Found</h3>
-      {% endif %}
+          </div> 
 </section>      
 {% endblock %}
