@@ -98,7 +98,7 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 ### AWS S3 Storage
 
-
+- To set up AWS S3 as storage for both static and media files, I follow the steps outlined [here](https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/). 
 
 ### Heroku Deployment
 
@@ -144,8 +144,10 @@ os.environ.setdefault("AWS_STORAGE_BUCKET_NAME", "AWS_STORAGE_BUCKET_NAME")
 os.environ.setdefault("AWS_URL", "AWS_URL")
 os.environ.setdefault("USE_S3", "True")
 os.environ.setdefault("DATABASE_URL", "DATABASE_URL")
-DISABLE_COLLECTSTATIC=1
+os.environ.setdefault("DISABLE_COLLECTSTATIC=1")
 ```
+
+On Heroku, you should also add DEBUG = FALSE.
 
 Step 4: Add Buildpacks.
 
