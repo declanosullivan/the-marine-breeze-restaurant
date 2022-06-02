@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect, reverse
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import authenticate, logout, login as user_login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from .forms import UserCreationFormCustom
 
 from bookings.models import Bookings
 
@@ -34,18 +35,19 @@ def profile(request):
 
 def signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserCreationFormCustom(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
 
             user = authenticate(username = username, password = password)
-            login(request, user)
+            user_login(request, user)
             return redirect('home')
     else:
-        form = UserCreationForm()
+        form = UserCreationFormCustom()
     return render(request, 'registration/signup.html', {'form': form})
+
 
 def logout_view(request):
     logout(request)

@@ -80,9 +80,11 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+GRAPPELLI_ADMIN_TITLE = 'The Marine Breeze Restaurant'
+
 WSGI_APPLICATION = 'marine_breeze.wsgi.application'
 
-SITE_ID = 1
+SITE_ID = 2
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
