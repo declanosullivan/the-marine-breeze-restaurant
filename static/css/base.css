@@ -9,7 +9,3 @@ body {
     background: radial-gradient(ellipse at center, #FFFFFF 0%, #ABCAD2 100%);
     }
 
-#contactgrid{
-  display: grid; 
-  grid-template-columns: repeat(2, 1fr);
-}
