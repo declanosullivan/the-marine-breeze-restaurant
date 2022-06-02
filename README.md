@@ -211,3 +211,5 @@ To https://git.heroku.com/the-marine-breeze-restaurant.git
 - All images are from [Pixabay](https://www.pixabay.com)
 
 ### Acknowledgements
+
+Thank you to Tim and CI for their support through PP4.
