@@ -1,11 +1,11 @@
 {% load static %}
 
 {% block page_footer %}
-  <header class="pb-3">
-    <div class="container py-3">
-      <h2 class="text-center">The Marine Breeze Restaurant</h2>
+<header class="pb-3">
+  <div class="container py-4">
+    <h1 class="text-center">The Marine Breeze Restaurant</h1>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid pt-3">
       <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between py-2">
         <img src="https://declan-project-1.s3.amazonaws.com/static/icons/water.svg" alt="water waves" width="32" height="32">
         <a class="navbar-brand" href="{% url 'home' %}">Home</a>
@@ -25,13 +25,10 @@
             <a class="navbar-brand" href="{% url 'signup' %}">Sign Up</a>
             </div>
             {% endif %}
-            <div>
-              <p>Your Username is : {{user}} </p>
-              <p>Your User Id is  : {{user.id}} </p>
-            </div>
         <nav>
         <img src="https://declan-project-1.s3.amazonaws.com/static/icons/water.svg" alt="water waves" width="32" height="32">
       <nav>
     </div>
   </header>
 {% endblock %}
+

@@ -34,26 +34,22 @@
 <body>
     {% block page_header %}
       {% include 'includes/main-nav.html' %}
-      <div>
-      </div>
     {% endblock %}
    
     {% if messages %}
         <div class="message-container"></div>
     {% endif %}
 
-    <div>
-      {% block content %}
-        {% endblock %}
-    </div>
+   
+    {% block content %}
+    {% endblock %}
+ 
         
     {% block postloadjs %}
     {% endblock %}
 
     {% block page_footer %}
       {% include 'includes/main-footer.html' %}
-      <div>
-      </div>   
     {% endblock %}
   </body>
 </html>

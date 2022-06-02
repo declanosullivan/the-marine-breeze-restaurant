@@ -3,8 +3,7 @@ from django.contrib.auth.models import User
 from tables.models import Tables, TableAvail
 from django.db import models
 import datetime
-
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
 
 
@@ -32,7 +31,6 @@ class Bookings(models.Model):
     table_avail = models.ForeignKey(TableAvail, on_delete=models.CASCADE)
 
 
-
 @receiver(post_save, sender=Bookings)
 def update_booking(sender, instance, **kwargs):
     table = instance.table
@@ -48,6 +46,7 @@ def update_booking(sender, instance, **kwargs):
 
 @receiver(pre_delete, sender=Bookings)
 def update_avail(sender, instance, **kwargs):
-    TableAvail.update(is_booked=False)
+    tableavail = instance.tableavail
+    instance.is_booked = False
 
             
