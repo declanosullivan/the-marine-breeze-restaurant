@@ -5,19 +5,20 @@
 
 ## Overview
 
-
 * External user = restaurant patron
 * Site owner = restaurant manager
 
 ### External user’s goal:			
 
-The user would like to book a table at the restaurant on a specific date and number of seats, while also know the start and finish time of the reservation. 
+The user would like to book a table at the restaurant on a specific date and number of seats, for selected start and finish time. 
 
-In additon booking a table, they would also like to cancel the reservation. 
+In additon booking a table, they would also like to cancel the reservation if needed without having to call.
 
 ### Site owner's goal:			
 
-The site owner would like the ability to take online bookings for their eatery, freeing up staffs time to focus on guests physically at restaurant. 
+The site owner would like the ability to take online bookings for their eatery, freeing up staffs time to focus on guests physically at restaurant, instead of reservation admin.
+
+The site owner also wants tables to become free to book again if a reservation gets cancelled. 
 
 
 ## UX
@@ -78,8 +79,6 @@ As a external user,
 * [Grappelli](https://pypi.org/project/django-grappelli/) - used as a skin for the Django admin panel.
 * [django-storages](https://pypi.org/project/django-storages/) - used to enable AWS S3 as a custom backend.
 * [boto3](https://pypi.org/project/boto3/) - provides a Python API for AWS infrastructure services.
-
-
 
 ## Testing
 
