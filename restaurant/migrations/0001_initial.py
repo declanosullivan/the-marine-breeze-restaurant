@@ -7,43 +7,89 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='ClosedDays',
+            name="ClosedDays",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('closed_date', models.DateField()),
-                ('closed_reason', models.TextField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("closed_date", models.DateField()),
+                ("closed_reason", models.TextField()),
             ],
         ),
         migrations.CreateModel(
-            name='Contact',
+            name="Contact",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=120)),
-                ('email', models.EmailField(blank=True, max_length=254)),
-                ('subject', models.CharField(blank=True, max_length=25)),
-                ('message', models.TextField(blank=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=120)),
+                ("email", models.EmailField(blank=True, max_length=254)),
+                ("subject", models.CharField(blank=True, max_length=25)),
+                ("message", models.TextField(blank=True)),
             ],
         ),
         migrations.CreateModel(
-            name='OpenHours',
+            name="OpenHours",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('week_day', models.CharField(choices=[('SUN', 'SUNDAY'), ('MON', 'MONDAY'), ('TUE', 'TUESDAY'), ('WED', 'WEDNESDAY'), ('THU', 'THURSDAY'), ('FRI', 'FRIDAY'), ('SAT', 'SATURDAY')], max_length=7, unique=True)),
-                ('opening_time', models.TimeField()),
-                ('closing_time', models.TimeField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "week_day",
+                    models.CharField(
+                        choices=[
+                            ("SUN", "SUNDAY"),
+                            ("MON", "MONDAY"),
+                            ("TUE", "TUESDAY"),
+                            ("WED", "WEDNESDAY"),
+                            ("THU", "THURSDAY"),
+                            ("FRI", "FRIDAY"),
+                            ("SAT", "SATURDAY"),
+                        ],
+                        max_length=7,
+                        unique=True,
+                    ),
+                ),
+                ("opening_time", models.TimeField()),
+                ("closing_time", models.TimeField()),
             ],
         ),
         migrations.CreateModel(
-            name='TimeSlots',
+            name="TimeSlots",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('slot_start', models.TimeField()),
-                ('slot_end', models.TimeField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("slot_start", models.TimeField()),
+                ("slot_end", models.TimeField()),
             ],
         ),
     ]
