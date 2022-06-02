@@ -5,17 +5,26 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container" id="contactgrid">
-  <div>
-    <h3>Contact Us</h3>
-    <form action="" method=" post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit" value="Submit">
-    </form>
-  </div>
-  </div>
-    <img src=" {% static 'media/maplocation.jpg' %}" class="img-fluid" alt="map">
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+      <h3>Contact Us</h3>
+      <form action="" method=" post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+    <div class="col-5">
+      <h3>Find Us</h3>
+      <div>
+        <img src="{% static '/media/openstreetmap.png' %}" class="img-fluid" alt="map">
+      </div>
+      <div>
+        <p>Address: Allihies, Beara, Co. Cork</p>
+        <p>Phone: 021-28284747474</p>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}
