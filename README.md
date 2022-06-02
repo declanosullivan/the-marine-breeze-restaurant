@@ -74,6 +74,10 @@ As a external user,
 
 #### Libraries Used
 
+* [Black](https://pypi.org/project/black/) - used for strict code formatting. 
+* [Grappelli](https://pypi.org/project/django-grappelli/) - used as a skin for the Django admin panel.
+* [django-storages](https://pypi.org/project/django-storages/) - used to enable AWS S3 as a custom backend.
+* [boto3](https://pypi.org/project/boto3/) - provides a Python API for AWS infrastructure services.
 
 
 
@@ -133,6 +137,7 @@ Step 3: Add Config Vars.
 - We are going to copy several config vars from your env.py file in Gitpod.
 - The follow enviromental varibales from env.py should be added to Heroku:
 
+```
 os.environ.setdefault("SECRET_KEY", "SECRET_KEY")
 os.environ.setdefault("AWS_ACCESS_KEY_ID", "AWS_ACCESS_KEY_ID")
 os.environ.setdefault("AWS_SECRET_ACCESS_KEY", "AWS_SECRET_ACCESS_KEY")
@@ -141,6 +146,7 @@ os.environ.setdefault("AWS_URL", "AWS_URL")
 os.environ.setdefault("USE_S3", "True")
 os.environ.setdefault("DATABASE_URL", "DATABASE_URL")
 DISABLE_COLLECTSTATIC=1
+```
 
 Step 4: Add Buildpacks.
 
@@ -175,23 +181,23 @@ heroku git:remote -a the-marine-breeze-restaurant
 
 - If you completed any necessary pull requests from branches to update the main on your github repository:
 
-'''
+```
 git push heroku main
-'''
+```
 
 - If you are working from a branch but don't want to complete a pull request and you can push your changes from the github branch to heroku main:
 
-'''
+```
 git push branchname:main
-'''
+```
 
 - Once deployment to Heroku is successully completed, you should a similar message in the terminal:
 
-'''
+```
 remote: Verifying deploy... done.
 To https://git.heroku.com/the-marine-breeze-restaurant.git
    7aed2cc..f9d96fe  admin2 -> main
-'''
+```
 
 ## Credits and Learning Experience
 

@@ -44,3 +44,6 @@ class TableAvail(models.Model):
     table_start = models.TimeField()
     table_end = models.TimeField()
     is_booked = models.BooleanField(default=False)
+
+    def __str__(self):
+        return str(self.id)

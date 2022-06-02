@@ -23,9 +23,11 @@ def bookings(request):
         num_seats = request.GET.get("num_seats")
         request.session["num_seats"] = num_seats
         print(selected_date, num_seats)
+        # selected_date = datetime.strptime(selected_date, '%Y-%M-%d')
         results = TableAvail.objects.filter(
             table_date=selected_date, table_no__table_seats=num_seats, is_booked=False
         )
+        print(results)
         return render(
             request,
             "bookings/bookings.html",
@@ -88,14 +90,13 @@ def booking_cancel(request, booking_id):
     Cancel reservation
     """
     userbooking = Bookings.objects.get(id=booking_id)
-    ta = Bookings.table_avail
-    tablerelease = TableAvail.objects.get(id=ta)
+    ta = userbooking.table_avail
 
     confirm = request.POST.get("confirm")
     if confirm:
 
-        tablerelease.table_avail.is_booked = False
-        tablerelease.table_avail.save()
+        ta.is_booked = False
+        ta.save()
         userbooking.delete()
 
         return redirect("profile")
@@ -122,7 +123,7 @@ def create_availability(request):
         # loop over each slot
         # create TableAvail objects for each table
 
-        for i, x in enumerate(range(0, 4)):
+        for i, x in enumerate(range(0, 90)):
             if i == 0:
                 start_date = start_date
             else:

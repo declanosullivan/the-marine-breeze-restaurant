@@ -52,9 +52,3 @@ def update_booking(sender, instance, **kwargs):
             table_start=instance.booking_start,
             table_end=instance.booking_end,
         ).update(is_booked=True)
-
-
-@receiver(pre_delete, sender=Bookings)
-def update_avail(sender, instance, **kwargs):
-    tableavail = instance.tableavail
-    instance.is_booked = False
